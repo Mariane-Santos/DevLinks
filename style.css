@@ -5,8 +5,9 @@
 }
 
 /*:root de raiz que é o msm html */
+
+/*Definindo um nome qualquer para receber a cor do texto raiz, onde eu usar essa variavel no meu código vai ficar branco, ou vai mudar o background, ou mudar a cocro do ´preenchimento quano descansar o mouse em cima dp=o botão . para aplicar a cor tem que chamar a variavel "var(--text-color)"*/
 :root {
-    /*Definindo um nome qualquer para receber a cor do texto raiz, onde eu usar essa variavel no meu código vai ficar branco, ou vai mudar o background, ou mudar a cocro do ´preenchimento quano descansar o mouse em cima dp=o botão . para aplicar a cor tem que chamar a variavel "var(--text-color)"*/
     --text-color: white;
     --bg-url: url(./assets/bg-mobile.jpg);
     --stroke-color: rgba(255, 255, 255, 0.5);
@@ -95,12 +96,17 @@ body * {
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+
+    animation: slide-back 0.2s;
+}
+/*o forwards mantem as propriedades finais do animation, ou seja, as propriedades do 'to' que tá em animation: slide-in/back no final do código*/
+.light #switch button{
+    animation: slide-in 0.2s forwards;
+
 }
 
-.light #switch button{
-    right: 0;
-    left: initial;
-
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
 }
 /*o Span por padrão é display in-line então ele n aceita largura e nem altura, para adicionar essas propriedades deve-se colocar ele em display: block*/
 #switch span{
@@ -204,3 +210,21 @@ footer {
     }
 }
 
+/*animation do botão*/
+@keyframes slide-in {
+from{
+    left: 0;
+}
+to {
+    left: 50%;
+}
+}
+
+@keyframes slide-back {
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+}
