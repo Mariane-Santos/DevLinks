@@ -45,9 +45,10 @@ body * {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
 }
- /*colocando uma largura fixa e aplicando margens para a caixa*/
+ /*ajustando a largura para todos os dispositivos*/
 #container {
-    width: 360px;
+    width: 100%;
+    max-width: 580px;
     margin: 56px auto 0px;
     padding: 0 24px;
 }
