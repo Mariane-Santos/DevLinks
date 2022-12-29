@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*:root de raiz que é o msm html */
+:root {
+    /*Definindo um nome qualquer para receber a cor do texto raiz, onde eu usar essa variavel no meu código vai ficar branco, ou vai mudar o background, ou mudar a cocro do ´preenchimento quano descansar o mouse em cima dp=o botão . para aplicar a cor tem que chamar a variavel "var(--text-color)"*/
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+
+}
+
+/*para colocar o tema claro*/
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.2);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+    /*
+    background-image: url(./assets/bg-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    */
+
+    /*background: color image repeat position/size*/
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+/*Aplicando a fonte e cor para todo o projeto (o * significa "para todo")*/
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+ /*colocando uma largura fixa e aplicando margens para a caixa*/
+#container {
+    width: 360px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+
+/*Profile*/
+
+/*Centralizando o texto e colocando uma margem*/
+#profile {
+    text-align: center;
+    padding: 24px;
+}
+ 
+#profile img {
+    width: 112px;    
+}
+/*Aplicando a fonte do projeto*/
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/*Switch*/
+
+/*Há varias fomass de alinhamentos sendo aplicadas no switch, aula "masterizando alim=nhamentos e alinhando posicionamentos absolutos, do projeto DEvLinks da Rocketseat*/
+#switch {
+    position: relative;
+    width: 64px;
+
+    margin: 4px auto;
+
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.light #switch button{
+    right: 0;
+    left: initial;
+
+}
+/*o Span por padrão é display in-line então ele n aceita largura e nem altura, para adicionar essas propriedades deve-se colocar ele em display: block*/
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* Links - Lista*/
+ul {
+     /*O display: flax aplicando um alinhamento flexivel. O flex-direction: column; Coloca a lista como cuma coluna. O gap da espaço entre elementos (é o espaço que tem entre os "li") */
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 16px 24px;
+
+    /*Estilizando o elemento "a"*/
+
+    /*red, green, blue e alpha (é a transparencia da mistura dessas cores)*/
+    /*Quando tá tudo 255 forma um branco e o alpha da a tranparencia*/
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    /*O border-radius deixa as bordas arredondadas*/
+    border-radius: 8px;
+
+    /*O Blur coloca um embaçado nos botões*/
+    backdrop-filter: blur(4px);
+    /*para funcionar no navegador safari*/
+    -webkit-backdrop-filter: blur(4px);
+
+    /*Esse elemeno "none" tira linha do link do botão, tem ainda o "underLine" para colocar uma linha em baixi=o, o OverLine para uma linha em cima do texto e o Line-through pra colocar uma linha no meio*/
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+/*O ":hover" é oq chamam de Psudo-selector, nele a gente aplica as coisas quando passar o mouse em cima */
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/*Social links */
+#social-links {
+    /*usando o display flax para deixar um icone do lado do outro e para habilitar o Gap q é o espaço entre eles. Padding de 24px em cima e em baixo e de 0 dos lados. Font-size de 40px para o tamanho dos icones. O justify-content alinha os icones ao meio*/
+    display: flex;
+    justify-content: center;
+
+    padding: 24px 0;
+
+    font-size: 24px;
+}
+
+/*Usando O border-radius de 50% para ficar uma bolinha perfeita. E fazendo a configuração para alinhar a bolinha em volta dos icones*/ 
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+/*a:hover para colocar um backgroud transparente nos icones*/
+#social-links a:hover {
+    background: var(--highlight-color);
+}
+ 
+/*Alinhando o texto do rodapé*/
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
+    
+
