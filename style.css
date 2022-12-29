@@ -38,6 +38,7 @@ body {
 
     /*background: color image repeat position/size*/
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100%;
 }
 
 /*Aplicando a fonte e cor para todo o projeto (o * significa "para todo")*/
@@ -192,4 +193,14 @@ footer {
     font-size: 14px;
 }
     
+/*media queries*/
+@media (min-width: 700px) {
+    :root {
+        --bg-url: url(./assets/bg-desktop.jpg);
+    }
+
+    .light {
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
 
